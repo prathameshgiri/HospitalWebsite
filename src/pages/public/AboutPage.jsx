@@ -207,29 +207,23 @@ function TimelineJourney() {
           <h2 className="text-4xl md:text-5xl font-bold font-display text-gray-900 mb-4">Milestones of <span className="text-transparent bg-clip-text bg-gradient-to-r from-ocean-600 to-medical-500">Progress</span></h2>
         </div>
         
-        <div className={`relative max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}>
-          {/* Glowing Line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gray-100 -translate-x-1/2 rounded-full"></div>
-          <div className="hidden md:block absolute left-1/2 top-0 h-3/4 w-1 bg-gradient-to-b from-medical-500 to-ocean-500 -translate-x-1/2 rounded-full blur-[2px]"></div>
+        <div className={`relative max-w-3xl mx-auto transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+          {/* Vertical Line */}
+          <div className="absolute left-[31px] md:left-[39px] top-8 bottom-8 w-1 bg-gradient-to-b from-medical-200 to-ocean-200 rounded-full"></div>
           
-          <div className="flex flex-col gap-6 md:gap-0 md:block">
+          <div className="space-y-8 md:space-y-12">
             {milestones.map((item, i) => (
-              <div key={i} className={`relative flex items-center md:gap-8 md:mb-16 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
-                {/* Dot */}
-                <div className="hidden md:flex absolute left-1/2 w-8 h-8 bg-white rounded-full border-4 border-medical-500 shadow-[0_0_15px_rgba(14,165,233,0.5)] -translate-x-1/2 z-10 items-center justify-center">
-                  <div className="w-2 h-2 bg-ocean-500 rounded-full"></div>
+              <div key={i} className="relative flex gap-4 md:gap-8 items-start group">
+                {/* Year Badge Node */}
+                <div className="relative z-10 w-16 h-16 md:w-20 md:h-20 shrink-0 bg-white rounded-full border-4 border-medical-500 shadow-[0_0_20px_rgba(13,148,136,0.2)] flex items-center justify-center font-bold text-medical-600 text-sm md:text-base font-display group-hover:bg-medical-500 group-hover:text-white transition-colors duration-500">
+                  {item.year}
                 </div>
                 
                 {/* Content Card */}
-                <div className={`w-full md:w-[calc(50%-3rem)] ${i % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
-                  <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
-                    <span className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-medical-50 text-medical-600 font-bold text-xs md:text-sm mb-3 md:mb-4">{item.year}</span>
-                    <h3 className="text-lg md:text-2xl font-bold text-gray-900 font-display mb-2 md:mb-3">{item.title}</h3>
-                    <p className="text-xs md:text-base text-gray-600 font-medium leading-relaxed">{item.desc}</p>
-                  </div>
+                <div className="bg-white rounded-2xl md:rounded-[2rem] p-6 md:p-8 border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-medical-500/10 hover:-translate-y-1 transition-all flex-1">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 font-display mb-2 md:mb-3 group-hover:text-medical-600 transition-colors">{item.title}</h3>
+                  <p className="text-sm md:text-base text-gray-600 font-medium leading-relaxed">{item.desc}</p>
                 </div>
-              
-                <div className="hidden md:block md:w-[calc(50%-3rem)]"></div>
               </div>
             ))}
           </div>
