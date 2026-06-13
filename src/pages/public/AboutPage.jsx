@@ -102,8 +102,8 @@ function MissionVisionBento() {
               <div className="w-16 h-16 rounded-2xl bg-medical-500 text-white flex items-center justify-center mb-8 shadow-lg shadow-medical-500/30">
                 <Target className="w-8 h-8" />
               </div>
-              <h2 className="text-4xl font-bold font-display text-gray-900 mb-6">Our Mission</h2>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-2xl font-medium">
+              <h2 className="text-3xl md:text-4xl font-bold font-display text-gray-900 mb-4 md:mb-6">Our Mission</h2>
+              <p className="text-sm md:text-xl text-gray-600 leading-relaxed max-w-2xl font-medium">
                 To provide accessible, affordable, and highest-quality healthcare to every individual. We combine unparalleled medical expertise with deep compassion and cutting-edge technology to deliver outcomes that matter.
               </p>
             </div>
@@ -118,8 +118,8 @@ function MissionVisionBento() {
                 <Eye className="w-8 h-8" />
               </div>
               <div>
-                <h2 className="text-4xl font-bold font-display text-white mb-6">Our Vision</h2>
-                <p className="text-lg text-slate-300 leading-relaxed font-medium">
+                <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-4 md:mb-6">Our Vision</h2>
+                <p className="text-sm md:text-lg text-slate-300 leading-relaxed font-medium">
                   To be the global benchmark in healthcare, setting new standards for medical excellence, patient satisfaction, and continuous innovation.
                 </p>
               </div>
@@ -209,28 +209,30 @@ function TimelineJourney() {
         
         <div className={`relative max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}>
           {/* Glowing Line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-1 bg-gray-100 -translate-x-1/2 rounded-full"></div>
-          <div className="absolute left-6 md:left-1/2 top-0 h-3/4 w-1 bg-gradient-to-b from-medical-500 to-ocean-500 -translate-x-1/2 rounded-full blur-[2px]"></div>
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gray-100 -translate-x-1/2 rounded-full"></div>
+          <div className="hidden md:block absolute left-1/2 top-0 h-3/4 w-1 bg-gradient-to-b from-medical-500 to-ocean-500 -translate-x-1/2 rounded-full blur-[2px]"></div>
           
-          {milestones.map((item, i) => (
-            <div key={i} className={`relative flex items-center gap-8 mb-16 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
-              {/* Dot */}
-              <div className="absolute left-6 md:left-1/2 w-8 h-8 bg-white rounded-full border-4 border-medical-500 shadow-[0_0_15px_rgba(14,165,233,0.5)] -translate-x-1/2 z-10 flex items-center justify-center">
-                <div className="w-2 h-2 bg-ocean-500 rounded-full"></div>
-              </div>
-              
-              {/* Content Card */}
-              <div className={`ml-16 md:ml-0 md:w-[calc(50%-3rem)] ${i % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
-                <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
-                  <span className="inline-block px-4 py-1.5 rounded-full bg-medical-50 text-medical-600 font-bold text-sm mb-4">{item.year}</span>
-                  <h3 className="text-2xl font-bold text-gray-900 font-display mb-3">{item.title}</h3>
-                  <p className="text-gray-600 font-medium leading-relaxed">{item.desc}</p>
+          <div className="flex flex-col gap-6 md:gap-0 md:block">
+            {milestones.map((item, i) => (
+              <div key={i} className={`relative flex items-center md:gap-8 md:mb-16 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
+                {/* Dot */}
+                <div className="hidden md:flex absolute left-1/2 w-8 h-8 bg-white rounded-full border-4 border-medical-500 shadow-[0_0_15px_rgba(14,165,233,0.5)] -translate-x-1/2 z-10 items-center justify-center">
+                  <div className="w-2 h-2 bg-ocean-500 rounded-full"></div>
                 </div>
-              </div>
+                
+                {/* Content Card */}
+                <div className={`w-full md:w-[calc(50%-3rem)] ${i % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
+                  <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <span className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-medical-50 text-medical-600 font-bold text-xs md:text-sm mb-3 md:mb-4">{item.year}</span>
+                    <h3 className="text-lg md:text-2xl font-bold text-gray-900 font-display mb-2 md:mb-3">{item.title}</h3>
+                    <p className="text-xs md:text-base text-gray-600 font-medium leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
               
-              <div className="hidden md:block md:w-[calc(50%-3rem)]"></div>
-            </div>
-          ))}
+                <div className="hidden md:block md:w-[calc(50%-3rem)]"></div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
