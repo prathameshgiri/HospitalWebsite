@@ -63,13 +63,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Column 1: About */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3 group mb-6">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-medical-400 to-medical-500 flex items-center justify-center">
-                <Heart className="w-5 h-5 text-white" fill="white" />
+            <Link to="/" className="flex items-center gap-3 group mb-4 md:mb-6">
+              <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-gradient-to-br from-medical-400 to-medical-500 flex items-center justify-center">
+                <Heart className="w-4 h-4 md:w-5 md:h-5 text-white" fill="white" />
               </div>
-              <span className="text-xl font-bold text-white font-display">{HOSPITAL_NAME}</span>
+              <span className="text-lg md:text-xl font-bold text-white font-display">{HOSPITAL_NAME}</span>
             </Link>
-            <p className="text-gray-400 leading-relaxed mb-6">
+            <p className="text-xs md:text-sm text-gray-400 leading-relaxed mb-4 md:mb-6">
               Providing world-class healthcare services with compassion, cutting-edge technology, and a commitment to excellence since 2001.
             </p>
             <div className="flex items-center gap-3">
@@ -77,9 +77,9 @@ export default function Footer() {
                 <a
                   key={i}
                   href="#"
-                  className="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center hover:bg-medical-600 transition-all duration-300 hover:-translate-y-0.5"
+                  className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gray-800 flex items-center justify-center hover:bg-medical-600 transition-all duration-300 hover:-translate-y-0.5"
                 >
-                  <Icon className="w-4 h-4 text-white" />
+                  <Icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-white" />
                 </a>
               ))}
             </div>
@@ -87,15 +87,15 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h4 className="text-white font-semibold text-lg mb-6 font-display">Quick Links</h4>
-            <ul className="space-y-3">
+            <h4 className="text-white font-semibold text-base md:text-lg mb-4 md:mb-6 font-display">Quick Links</h4>
+            <ul className="space-y-2 md:space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="flex items-center gap-2 text-gray-400 hover:text-medical-400 transition-colors group"
+                    className="flex items-center gap-2 text-xs md:text-base text-gray-400 hover:text-medical-400 transition-colors group"
                   >
-                    <ChevronRight className="w-4 h-4 text-gray-600 group-hover:text-medical-400 transition-colors" />
+                    <ChevronRight className="w-3 h-3 md:w-4 md:h-4 text-gray-600 group-hover:text-medical-400 transition-colors" />
                     {link.name}
                   </Link>
                 </li>
@@ -105,15 +105,15 @@ export default function Footer() {
 
           {/* Column 3: Services */}
           <div>
-            <h4 className="text-white font-semibold text-lg mb-6 font-display">Our Services</h4>
-            <ul className="space-y-3">
+            <h4 className="text-white font-semibold text-base md:text-lg mb-4 md:mb-6 font-display">Our Services</h4>
+            <ul className="space-y-2 md:space-y-3">
               {services.map((service) => (
                 <li key={service}>
                   <Link
                     to="/services"
-                    className="flex items-center gap-2 text-gray-400 hover:text-medical-400 transition-colors group"
+                    className="flex items-center gap-2 text-xs md:text-base text-gray-400 hover:text-medical-400 transition-colors group"
                   >
-                    <ChevronRight className="w-4 h-4 text-gray-600 group-hover:text-medical-400 transition-colors" />
+                    <ChevronRight className="w-3 h-3 md:w-4 md:h-4 text-gray-600 group-hover:text-medical-400 transition-colors" />
                     {service}
                   </Link>
                 </li>
@@ -123,39 +123,39 @@ export default function Footer() {
 
           {/* Column 4: Contact Info */}
           <div>
-            <h4 className="text-white font-semibold text-lg mb-6 font-display">Contact Us</h4>
-            <ul className="space-y-4">
+            <h4 className="text-white font-semibold text-base md:text-lg mb-4 md:mb-6 font-display">Contact Us</h4>
+            <ul className="space-y-3 md:space-y-4">
               <li>
-                <a href={`tel:${HOSPITAL_PHONE}`} className="flex items-start gap-3 text-gray-400 hover:text-medical-400 transition-colors">
-                  <Phone className="w-5 h-5 mt-0.5 shrink-0 text-medical-400" />
-                  <div>
-                    <p className="font-medium text-white text-sm">Phone</p>
+                <a href={`tel:${HOSPITAL_PHONE}`} className="flex items-start gap-2 md:gap-3 text-gray-400 hover:text-medical-400 transition-colors">
+                  <Phone className="w-4 h-4 md:w-5 md:h-5 mt-0.5 shrink-0 text-medical-400" />
+                  <div className="text-xs md:text-base">
+                    <p className="font-medium text-white text-[10px] md:text-sm">Phone</p>
                     <p>{HOSPITAL_PHONE}</p>
                   </div>
                 </a>
               </li>
               <li>
-                <a href={`mailto:${HOSPITAL_EMAIL}`} className="flex items-start gap-3 text-gray-400 hover:text-medical-400 transition-colors">
-                  <Mail className="w-5 h-5 mt-0.5 shrink-0 text-medical-400" />
-                  <div>
-                    <p className="font-medium text-white text-sm">Email</p>
+                <a href={`mailto:${HOSPITAL_EMAIL}`} className="flex items-start gap-2 md:gap-3 text-gray-400 hover:text-medical-400 transition-colors">
+                  <Mail className="w-4 h-4 md:w-5 md:h-5 mt-0.5 shrink-0 text-medical-400" />
+                  <div className="text-xs md:text-base">
+                    <p className="font-medium text-white text-[10px] md:text-sm">Email</p>
                     <p>{HOSPITAL_EMAIL}</p>
                   </div>
                 </a>
               </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 mt-0.5 shrink-0 text-medical-400" />
-                <div>
-                  <p className="font-medium text-white text-sm">Address</p>
+              <li className="flex items-start gap-2 md:gap-3">
+                <MapPin className="w-4 h-4 md:w-5 md:h-5 mt-0.5 shrink-0 text-medical-400" />
+                <div className="text-xs md:text-base">
+                  <p className="font-medium text-white text-[10px] md:text-sm">Address</p>
                   <p className="text-gray-400">{HOSPITAL_ADDRESS}</p>
                 </div>
               </li>
-              <li className="flex items-start gap-3">
-                <Clock className="w-5 h-5 mt-0.5 shrink-0 text-medical-400" />
-                <div>
-                  <p className="font-medium text-white text-sm">Working Hours</p>
+              <li className="flex items-start gap-2 md:gap-3">
+                <Clock className="w-4 h-4 md:w-5 md:h-5 mt-0.5 shrink-0 text-medical-400" />
+                <div className="text-xs md:text-base">
+                  <p className="font-medium text-white text-[10px] md:text-sm">Working Hours</p>
                   <p className="text-gray-400">Mon - Sat: 8:00 AM - 10:00 PM</p>
-                  <p className="text-emerald-400 text-sm">Emergency: 24/7 Open</p>
+                  <p className="text-emerald-400 text-[10px] md:text-sm">Emergency: 24/7 Open</p>
                 </div>
               </li>
             </ul>

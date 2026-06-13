@@ -146,13 +146,13 @@ export default function DoctorsPage() {
                         </div>
                       </div>
 
-                      <div className="flex gap-3 mt-6">
-                        <Link to="#" className="flex-1">
+                      <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                        <Link to="#" className="w-full sm:flex-1">
                           <Button variant="outline" className="w-full text-xs font-semibold hover:bg-medical-50 hover:text-medical-600 border-gray-200">
                             View Profile
                           </Button>
                         </Link>
-                        <Link to="/appointment" className="flex-1">
+                        <Link to="/appointment" className="w-full sm:flex-1">
                           <Button className="w-full text-xs font-semibold bg-medical-600 hover:bg-medical-700 text-white shadow-md shadow-medical-500/20" disabled={!doctor.available}>
                             Get Appointment
                           </Button>

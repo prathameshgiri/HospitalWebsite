@@ -236,11 +236,11 @@ function ServicesSection() {
                       <IconComp className="w-7 h-7 text-medical-600 group-hover:text-white transition-colors duration-500 relative z-10" />
                     </div>
                     
-                    <h3 className="text-xl md:text-2xl font-bold font-display text-gray-900 group-hover:text-medical-600 transition-colors duration-300 mb-3">
+                    <h3 className="text-lg md:text-xl font-bold font-display text-gray-900 group-hover:text-medical-600 transition-colors duration-300 mb-2">
                       {service.title}
                     </h3>
                     
-                    <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                    <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-6">
                       {service.description}
                     </p>
                   </div>

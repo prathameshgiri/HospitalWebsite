@@ -13,6 +13,7 @@ import TestimonialsPage from "./pages/public/TestimonialsPage";
 import LoginPage from "./pages/auth/LoginPage";
 import SignupPage from "./pages/auth/SignupPage";
 import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
+import ServiceDetailsPage from "./pages/public/ServiceDetailsPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -34,6 +35,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/:id" element={<ServiceDetailsPage />} />
           <Route path="/doctors" element={<DoctorsPage />} />
           <Route path="/facilities" element={<FacilitiesPage />} />
           <Route path="/contact" element={<ContactPage />} />
