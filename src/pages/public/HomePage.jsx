@@ -358,7 +358,7 @@ function TestimonialsSection() {
                 )}
               </div>
               
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed italic mb-6 min-h-[120px]">
+              <p className="text-gray-700 text-sm md:text-lg leading-relaxed italic mb-6 min-h-[120px]">
                 "{testimonial.content}"
               </p>
               
@@ -438,10 +438,10 @@ function WhyChooseSection() {
 
               {/* Content */}
               <div className="relative z-10">
-                <h3 className="font-bold text-gray-900 text-xl mb-3 group-hover:text-medical-700 transition-colors duration-300">
+                <h3 className="font-bold text-gray-900 text-lg md:text-xl mb-2 md:mb-3 group-hover:text-medical-700 transition-colors duration-300">
                   {reason.title}
                 </h3>
-                <p className="text-gray-500 text-base leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
+                <p className="text-gray-500 text-xs sm:text-sm md:text-base leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
                   {reason.desc}
                 </p>
               </div>
@@ -467,7 +467,7 @@ function FAQSection() {
               Frequently Asked<br />
               <span className="gradient-text">Questions</span>
             </h2>
-            <p className="text-gray-500 text-lg leading-relaxed mb-8">
+            <p className="text-gray-500 text-sm md:text-lg leading-relaxed mb-8">
               Find answers to common questions about our hospital, services, 
               appointments, and more. Can't find what you're looking for? Contact us directly.
             </p>

@@ -69,7 +69,7 @@ export default function Footer() {
               </div>
               <span className="text-lg md:text-xl font-bold text-white font-display">{HOSPITAL_NAME}</span>
             </Link>
-            <p className="text-xs md:text-sm text-gray-400 leading-relaxed mb-4 md:mb-6">
+            <p className="text-sm text-gray-400 leading-relaxed mb-4 md:mb-6">
               Providing world-class healthcare services with compassion, cutting-edge technology, and a commitment to excellence since 2001.
             </p>
             <div className="flex items-center gap-3">
@@ -93,7 +93,7 @@ export default function Footer() {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="flex items-center gap-2 text-xs md:text-base text-gray-400 hover:text-medical-400 transition-colors group"
+                    className="flex items-center gap-2 text-sm md:text-base text-gray-400 hover:text-medical-400 transition-colors group"
                   >
                     <ChevronRight className="w-3 h-3 md:w-4 md:h-4 text-gray-600 group-hover:text-medical-400 transition-colors" />
                     {link.name}
@@ -111,7 +111,7 @@ export default function Footer() {
                 <li key={service}>
                   <Link
                     to="/services"
-                    className="flex items-center gap-2 text-xs md:text-base text-gray-400 hover:text-medical-400 transition-colors group"
+                    className="flex items-center gap-2 text-sm md:text-base text-gray-400 hover:text-medical-400 transition-colors group"
                   >
                     <ChevronRight className="w-3 h-3 md:w-4 md:h-4 text-gray-600 group-hover:text-medical-400 transition-colors" />
                     {service}
@@ -128,8 +128,8 @@ export default function Footer() {
               <li>
                 <a href={`tel:${HOSPITAL_PHONE}`} className="flex items-start gap-2 md:gap-3 text-gray-400 hover:text-medical-400 transition-colors">
                   <Phone className="w-4 h-4 md:w-5 md:h-5 mt-0.5 shrink-0 text-medical-400" />
-                  <div className="text-xs md:text-base">
-                    <p className="font-medium text-white text-[10px] md:text-sm">Phone</p>
+                  <div className="text-sm md:text-base">
+                    <p className="font-medium text-white text-xs md:text-sm">Phone</p>
                     <p>{HOSPITAL_PHONE}</p>
                   </div>
                 </a>
@@ -137,25 +137,25 @@ export default function Footer() {
               <li>
                 <a href={`mailto:${HOSPITAL_EMAIL}`} className="flex items-start gap-2 md:gap-3 text-gray-400 hover:text-medical-400 transition-colors">
                   <Mail className="w-4 h-4 md:w-5 md:h-5 mt-0.5 shrink-0 text-medical-400" />
-                  <div className="text-xs md:text-base">
-                    <p className="font-medium text-white text-[10px] md:text-sm">Email</p>
+                  <div className="text-sm md:text-base">
+                    <p className="font-medium text-white text-xs md:text-sm">Email</p>
                     <p>{HOSPITAL_EMAIL}</p>
                   </div>
                 </a>
               </li>
               <li className="flex items-start gap-2 md:gap-3">
                 <MapPin className="w-4 h-4 md:w-5 md:h-5 mt-0.5 shrink-0 text-medical-400" />
-                <div className="text-xs md:text-base">
-                  <p className="font-medium text-white text-[10px] md:text-sm">Address</p>
+                <div className="text-sm md:text-base">
+                  <p className="font-medium text-white text-xs md:text-sm">Address</p>
                   <p className="text-gray-400">{HOSPITAL_ADDRESS}</p>
                 </div>
               </li>
               <li className="flex items-start gap-2 md:gap-3">
                 <Clock className="w-4 h-4 md:w-5 md:h-5 mt-0.5 shrink-0 text-medical-400" />
-                <div className="text-xs md:text-base">
-                  <p className="font-medium text-white text-[10px] md:text-sm">Working Hours</p>
+                <div className="text-sm md:text-base">
+                  <p className="font-medium text-white text-xs md:text-sm">Working Hours</p>
                   <p className="text-gray-400">Mon - Sat: 8:00 AM - 10:00 PM</p>
-                  <p className="text-emerald-400 text-[10px] md:text-sm">Emergency: 24/7 Open</p>
+                  <p className="text-emerald-400 text-xs md:text-sm">Emergency: 24/7 Open</p>
                 </div>
               </li>
             </ul>
