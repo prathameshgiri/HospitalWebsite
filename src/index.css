@@ -163,4 +163,14 @@
   .animation-delay-1000 {
     animation-delay: 1000ms;
   }
+  .animate-phone-ring {
+    animation: phone-ring 2.5s ease-in-out infinite;
+  }
+  @keyframes phone-ring {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    10%, 20%, 30% { transform: rotate(-15deg) scale(1.1); }
+    15%, 25%, 35% { transform: rotate(15deg) scale(1.1); }
+    40% { transform: rotate(0deg) scale(1.1); }
+    45% { transform: rotate(0deg) scale(1); }
+  }
 }

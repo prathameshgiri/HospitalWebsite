@@ -54,14 +54,14 @@ export default function DoctorsPage() {
             Meet Our <span className="gradient-text">Expert</span> Doctors
           </h1>
           <p className="text-lg text-gray-500 mt-6 max-w-2xl mx-auto animate-fade-in animation-delay-400">
-            Our team of highly qualified specialists brings decades of combined experience 
+            Our team of highly qualified specialists brings decades of combined experience
             to deliver exceptional medical care.
           </p>
         </div>
       </section>
 
       {/* Search & Filter */}
-      <section className="py-8 bg-white border-b sticky top-20 z-30 backdrop-blur-xl bg-white/90">
+      <section className="py-8 bg-white border-b relative">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col md:flex-row gap-4 items-center">
             <div className="relative flex-1 max-w-md">
@@ -78,11 +78,10 @@ export default function DoctorsPage() {
                 <button
                   key={dept}
                   onClick={() => setSelectedDept(dept)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    selectedDept === dept
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${selectedDept === dept
                       ? "bg-medical-500 text-white shadow-lg shadow-medical-500/25"
                       : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                  }`}
+                    }`}
                 >
                   {dept}
                 </button>
@@ -107,23 +106,22 @@ export default function DoctorsPage() {
                 <Card key={doctor.id} className="card-hover group overflow-hidden border-0 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 rounded-3xl bg-white">
                   <CardContent className="p-0">
                     <div className="h-28 bg-gradient-to-r from-medical-500 to-ocean-500 relative">
-                      <div className={`absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold shadow-md ${
-                        doctor.available
+                      <div className={`absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold shadow-md ${doctor.available
                           ? "bg-white text-emerald-600"
                           : "bg-white/90 text-gray-500"
-                      }`}>
+                        }`}>
                         <span className={`w-2 h-2 rounded-full ${doctor.available ? "bg-emerald-500 animate-pulse-soft" : "bg-gray-400"}`}></span>
                         {doctor.available ? "Available Today" : "On Leave"}
                       </div>
                     </div>
-                    
+
                     <div className="px-6 pb-6 relative">
                       <div className="flex justify-center -mt-14 mb-4 relative z-10">
                         <div className="w-28 h-28 rounded-full shadow-xl group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500 overflow-hidden bg-white border-4 border-white">
                           <img src={doctor.image} alt={doctor.name} className="w-full h-full object-cover" />
                         </div>
                       </div>
-                      
+
                       <div className="text-center">
                         <h3 className="text-xl font-bold font-display text-gray-900 group-hover:text-medical-600 transition-colors">{doctor.name}</h3>
                         <p className="text-medical-600 font-semibold text-sm mt-1">{doctor.specialization}</p>
@@ -148,7 +146,7 @@ export default function DoctorsPage() {
                         </div>
                       </div>
 
-                      <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                      <div className="flex gap-3 mt-6">
                         <Link to="#" className="flex-1">
                           <Button variant="outline" className="w-full text-xs font-semibold hover:bg-medical-50 hover:text-medical-600 border-gray-200">
                             View Profile
