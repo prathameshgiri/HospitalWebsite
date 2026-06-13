@@ -59,7 +59,7 @@ export default function Header() {
           : "bg-white"
       }`}>
         <div className="container mx-auto px-4 md:px-6">
-          <nav className="flex items-center justify-between h-20">
+          <nav className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
               <div className="relative">

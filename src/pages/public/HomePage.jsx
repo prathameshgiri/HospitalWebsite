@@ -69,7 +69,7 @@ function useScrollAnimation() {
 /* ─── Hero Section ─── */
 function HeroSection() {
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[80vh] lg:min-h-[92vh] pt-8 pb-16 lg:py-0 flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-medical-50/30 to-ocean-50/20"></div>
       <div className="absolute inset-0 bg-hero-pattern"></div>
@@ -101,15 +101,15 @@ function HeroSection() {
             
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-600">
               <Link to="/appointment">
-                <Button size="xl" className="gap-2 group">
-                  <Calendar className="w-5 h-5" />
+                <Button size="xl" className="h-auto py-3 px-6 md:py-4 md:px-8 text-sm md:text-base gap-2 group">
+                  <Calendar className="w-4 h-4 md:w-5 md:h-5" />
                   Book Appointment
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
               <a href={`tel:${HOSPITAL_EMERGENCY}`}>
-                <Button size="xl" variant="outline" className="gap-2">
-                  <Phone className="w-5 h-5" />
+                <Button size="xl" variant="outline" className="h-auto py-3 px-6 md:py-4 md:px-8 text-sm md:text-base gap-2">
+                  <Phone className="w-4 h-4 md:w-5 md:h-5" />
                   Emergency Call
                 </Button>
               </a>
@@ -247,9 +247,9 @@ function ServicesSection() {
 
         <div className="text-center mt-12">
           <Link to="/services">
-            <Button size="lg" variant="outline" className="gap-2 group">
+            <Button size="lg" variant="outline" className="h-auto py-2.5 px-5 md:py-3 md:px-8 text-xs md:text-sm gap-2 group">
               View All Services
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </div>
@@ -323,9 +323,9 @@ function DoctorsSection() {
 
         <div className="text-center mt-12">
           <Link to="/doctors">
-            <Button size="lg" variant="outline" className="gap-2 group">
+            <Button size="lg" variant="outline" className="h-auto py-2.5 px-5 md:py-3 md:px-8 text-xs md:text-sm gap-2 group">
               View All Doctors
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </div>
@@ -384,9 +384,9 @@ function TestimonialsSection() {
 
         <div className="text-center mt-12">
           <Link to="/testimonials">
-            <Button size="lg" variant="outline" className="gap-2 group shadow-sm bg-white hover:bg-gray-50">
+            <Button size="lg" variant="outline" className="h-auto py-2.5 px-5 md:py-3 md:px-8 text-xs md:text-sm gap-2 group shadow-sm bg-white hover:bg-gray-50">
               View More Feedback
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </div>
@@ -505,17 +505,17 @@ function CTASection() {
           Book your appointment today and experience world-class healthcare. 
           Our team is ready to provide you with the best care possible.
         </p>
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4">
           <Link to="/appointment">
-            <Button size="xl" className="bg-white text-medical-600 hover:bg-gray-50 shadow-xl gap-2 group">
-              <Calendar className="w-5 h-5" />
+            <Button size="xl" className="h-auto py-3 px-5 md:py-4 md:px-8 text-sm md:text-base bg-white text-medical-600 hover:bg-gray-50 shadow-xl gap-2 group">
+              <Calendar className="w-4 h-4 md:w-5 md:h-5" />
               Book Appointment
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
           <a href={`tel:${HOSPITAL_EMERGENCY}`}>
-            <Button size="xl" className="bg-white/10 text-white border-2 border-white/30 hover:bg-white/20 backdrop-blur-sm gap-2">
-              <Phone className="w-5 h-5" />
+            <Button size="xl" className="h-auto py-3 px-5 md:py-4 md:px-8 text-sm md:text-base bg-white/10 text-white border-2 border-white/30 hover:bg-white/20 backdrop-blur-sm gap-2">
+              <Phone className="w-4 h-4 md:w-5 md:h-5" />
               Call Now
             </Button>
           </a>

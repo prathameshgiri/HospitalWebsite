@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import {
   Heart, Phone, Mail, MapPin, Clock,
-  Globe, MessageCircle, Camera, Briefcase, Play,
   ArrowUpRight, ChevronRight
 } from "lucide-react";
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { HOSPITAL_NAME, HOSPITAL_PHONE, HOSPITAL_EMAIL, HOSPITAL_ADDRESS, HOSPITAL_EMERGENCY } from "../../lib/constants";
 
 export default function Footer() {
@@ -38,20 +38,20 @@ export default function Footer() {
       {/* CTA Banner */}
       <div className="relative border-b border-gray-800">
         <div className="container mx-auto px-4 md:px-6 py-12">
-          <div className="bg-gradient-to-r from-medical-600 to-ocean-600 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white font-display">
+          <div className="bg-gradient-to-r from-medical-600 to-ocean-600 rounded-2xl p-6 md:p-12 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
+            <div className="text-center md:text-left">
+              <h3 className="text-xl md:text-3xl font-bold text-white font-display">
                 Need Emergency Help?
               </h3>
-              <p className="text-medical-100 mt-2 text-lg">
+              <p className="text-medical-100 mt-2 text-sm md:text-lg">
                 Our emergency department is available 24/7. Don't hesitate to reach out.
               </p>
             </div>
             <a
               href={`tel:${HOSPITAL_EMERGENCY}`}
-              className="flex items-center gap-3 bg-white text-medical-600 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 text-lg whitespace-nowrap"
+              className="flex items-center justify-center w-full md:w-auto gap-2 md:gap-3 bg-white text-medical-600 font-bold px-6 py-3 md:px-8 md:py-4 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 text-base md:text-lg whitespace-nowrap"
             >
-              <Phone className="w-5 h-5" />
+              <Phone className="w-4 h-4 md:w-5 md:h-5" />
               {HOSPITAL_EMERGENCY}
             </a>
           </div>
@@ -73,13 +73,13 @@ export default function Footer() {
               Providing world-class healthcare services with compassion, cutting-edge technology, and a commitment to excellence since 2001.
             </p>
             <div className="flex items-center gap-3">
-              {[Globe, MessageCircle, Camera, Briefcase, Play].map((Icon, i) => (
+              {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
                   className="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center hover:bg-medical-600 transition-all duration-300 hover:-translate-y-0.5"
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="w-4 h-4 text-white" />
                 </a>
               ))}
             </div>
