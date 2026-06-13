@@ -19,7 +19,16 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    // Scroll immediately
     window.scrollTo(0, 0);
+    
+    // Fallback for delayed renders or browser quirks
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      document.documentElement.scrollTo(0, 0);
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   return null;
