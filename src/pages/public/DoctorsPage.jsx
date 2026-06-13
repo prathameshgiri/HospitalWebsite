@@ -148,7 +148,7 @@ export default function DoctorsPage() {
                         </div>
                       </div>
 
-                      <div className="flex gap-3 mt-6">
+                      <div className="flex flex-col sm:flex-row gap-3 mt-6">
                         <Link to="#" className="flex-1">
                           <Button variant="outline" className="w-full text-xs font-semibold hover:bg-medical-50 hover:text-medical-600 border-gray-200">
                             View Profile

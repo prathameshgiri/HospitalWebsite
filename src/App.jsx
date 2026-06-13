@@ -9,6 +9,8 @@ import ContactPage from "./pages/public/ContactPage";
 import AppointmentPage from "./pages/public/AppointmentPage";
 import EmergencyPage from "./pages/public/EmergencyPage";
 import TestimonialsPage from "./pages/public/TestimonialsPage";
+import LoginPage from "./pages/auth/LoginPage";
+import SignupPage from "./pages/auth/SignupPage";
 
 function App() {
   return (
@@ -28,7 +30,8 @@ function App() {
         </Route>
 
         {/* Auth Routes (Milestone 2) */}
-        {/* <Route path="/login" element={<LoginPage />} /> */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
 
         {/* Dashboard Routes (Milestone 2) */}
         {/* <Route element={<DashboardLayout />}> */}
