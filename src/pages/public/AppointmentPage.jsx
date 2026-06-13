@@ -310,22 +310,22 @@ export default function AppointmentPage() {
             )}
 
             {/* Navigation Buttons */}
-            <div className="flex justify-between mt-10 pt-6 border-t">
+            <div className="flex flex-col-reverse md:flex-row justify-between gap-4 mt-10 pt-6 border-t">
               {currentStep > 1 ? (
-                <Button type="button" variant="outline" onClick={prevStep} className="gap-2">
+                <Button type="button" variant="outline" onClick={prevStep} className="gap-2 w-full md:w-auto">
                   <ArrowLeft className="w-4 h-4" />
                   Previous
                 </Button>
               ) : (
-                <div></div>
+                <div className="hidden md:block"></div>
               )}
               {currentStep < 4 ? (
-                <Button type="button" onClick={nextStep} className="gap-2">
+                <Button type="button" onClick={nextStep} className="gap-2 w-full md:w-auto">
                   Next Step
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               ) : (
-                <Button type="submit" size="lg" className="gap-2">
+                <Button type="submit" size="lg" className="gap-2 w-full md:w-auto">
                   <Calendar className="w-5 h-5" />
                   Confirm Appointment
                 </Button>
