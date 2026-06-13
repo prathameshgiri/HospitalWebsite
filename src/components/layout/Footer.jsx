@@ -110,7 +110,7 @@ export default function Footer() {
               {services.map((service) => (
                 <li key={service}>
                   <Link
-                    to="/services"
+                    to={`/services/${service.toLowerCase().replace(/[^a-z0-9]+/g, '')}`}
                     className="flex items-center gap-2 text-sm md:text-base text-gray-400 hover:text-medical-400 transition-colors group"
                   >
                     <ChevronRight className="w-3 h-3 md:w-4 md:h-4 text-gray-600 group-hover:text-medical-400 transition-colors" />

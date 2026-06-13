@@ -97,7 +97,7 @@ export default function ServicesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {allServices.map((service, i) => {
               const IconComp = iconMap[service.icon] || Stethoscope;
-              const createSlug = (title) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+              const createSlug = (title) => title.toLowerCase().replace(/[^a-z0-9]+/g, '');
               return (
                 <Link to={`/services/${createSlug(service.title)}`} key={service.id} className="block h-full outline-none group">
                   <Card

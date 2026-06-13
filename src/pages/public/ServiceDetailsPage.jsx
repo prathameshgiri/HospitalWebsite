@@ -84,7 +84,7 @@ export default function ServiceDetailsPage() {
   const { id: slug } = useParams();
   const navigate = useNavigate();
   
-  const createSlug = (title) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+  const createSlug = (title) => title.toLowerCase().replace(/[^a-z0-9]+/g, '');
   const service = allServices.find(s => createSlug(s.title) === slug) || allServices[0];
   const IconComp = iconMap[service.icon] || Stethoscope;
 

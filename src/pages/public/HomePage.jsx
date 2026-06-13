@@ -257,12 +257,15 @@ function ServicesSection() {
                     </div>
 
                     {/* Explore Link */}
-                    <div className="mt-8 pt-5 border-t border-gray-100 flex items-center justify-between">
+                    <Link 
+                      to={`/services/${service.title.toLowerCase().replace(/[^a-z0-9]+/g, '')}`}
+                      className="mt-8 pt-5 border-t border-gray-100 flex items-center justify-between group/link"
+                    >
                       <span className="text-xs font-bold text-gray-400 group-hover:text-medical-600 transition-colors duration-300">Explore Service</span>
                       <div className="w-8 h-8 rounded-full bg-gray-50 group-hover:bg-medical-50 text-gray-400 group-hover:text-medical-600 flex items-center justify-center transition-all duration-300 transform group-hover:translate-x-1 shadow-sm">
                         <ArrowRight className="w-4 h-4" />
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
