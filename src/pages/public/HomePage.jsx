@@ -214,30 +214,55 @@ function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {SERVICES.map((service, i) => {
             const IconComp = serviceIcons[service.icon] || Stethoscope;
             return (
               <Card
                 key={service.id}
-                className={`card-hover group overflow-hidden ${
+                className={`group overflow-hidden border border-gray-100/80 bg-white hover:shadow-[0_20px_50px_rgba(13,148,136,0.12)] hover:-translate-y-2 rounded-[2rem] transition-all duration-500 relative flex flex-col h-full ${
                   isVisible ? "animate-slide-up opacity-0" : "opacity-0"
                 }`}
                 style={{ animationDelay: `${i * 100}ms` }}
               >
-                <CardContent className="p-7">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-medical-100 to-medical-50 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-medical-500 group-hover:to-medical-600 transition-all duration-300">
-                    <IconComp className="w-7 h-7 text-medical-600 group-hover:text-white transition-colors duration-300" />
+                {/* Ambient Glow Backdrop */}
+                <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-gradient-to-br from-medical-500/10 to-ocean-500/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none group-hover:scale-125"></div>
+                
+                <CardContent className="p-6 sm:p-8 flex flex-col h-full justify-between relative z-10">
+                  <div>
+                    {/* Floating Icon Container */}
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-medical-50 to-ocean-50/50 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:from-medical-500 group-hover:to-ocean-500 transition-all duration-500 shadow-sm group-hover:shadow-lg group-hover:shadow-medical-500/25 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                      <IconComp className="w-7 h-7 text-medical-600 group-hover:text-white transition-colors duration-500 relative z-10" />
+                    </div>
+                    
+                    <h3 className="text-xl md:text-2xl font-bold font-display text-gray-900 group-hover:text-medical-600 transition-colors duration-300 mb-3">
+                      {service.title}
+                    </h3>
+                    
+                    <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                      {service.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold font-display text-gray-900 mb-3">{service.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-5">{service.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {service.features.map((feat) => (
-                      <span key={feat} className="inline-flex items-center gap-1 text-xs font-medium text-medical-600 bg-medical-50 px-2.5 py-1 rounded-lg">
-                        <CheckCircle2 className="w-3 h-3" />
-                        {feat}
-                      </span>
-                    ))}
+
+                  <div>
+                    {/* Features Grid */}
+                    <div className="grid grid-cols-2 gap-2 mt-auto">
+                      {service.features.map((feat) => (
+                        <div key={feat} className="flex items-center gap-2 text-xs font-semibold text-gray-600 bg-gray-50/80 hover:bg-medical-50/80 hover:text-medical-700 px-3 py-2.5 rounded-xl transition-all duration-300 border border-gray-100/50 hover:border-medical-100/50">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-medical-500 shrink-0" />
+                          <span className="truncate">{feat}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Explore Link */}
+                    <div className="mt-8 pt-5 border-t border-gray-100 flex items-center justify-between">
+                      <span className="text-xs font-bold text-gray-400 group-hover:text-medical-600 transition-colors duration-300">Explore Service</span>
+                      <div className="w-8 h-8 rounded-full bg-gray-50 group-hover:bg-medical-50 text-gray-400 group-hover:text-medical-600 flex items-center justify-center transition-all duration-300 transform group-hover:translate-x-1 shadow-sm">
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
