@@ -93,10 +93,10 @@ export default function AppointmentPage() {
         <div className="absolute inset-0 bg-hero-pattern"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
           <Badge className="mb-4">Appointment</Badge>
-          <h1 className="text-4xl md:text-5xl font-bold font-display text-gray-900 leading-tight">
+          <h1 className="text-3xl md:text-5xl font-bold font-display text-gray-900 leading-tight">
             Book Your <span className="gradient-text">Appointment</span>
           </h1>
-          <p className="text-lg text-gray-500 mt-4 max-w-xl mx-auto">
+          <p className="text-sm md:text-lg text-gray-500 mt-4 max-w-xl mx-auto">
             Schedule a visit with our specialist doctors in just a few simple steps.
           </p>
         </div>
@@ -110,25 +110,25 @@ export default function AppointmentPage() {
             {steps.map((step, i) => (
               <div key={step.id} className="flex items-center flex-1">
                 <div className="flex flex-col items-center">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold text-sm transition-all duration-300 ${
+                  <div className={`w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center font-bold text-sm transition-all duration-300 ${
                     currentStep >= step.id
                       ? "bg-gradient-to-br from-medical-500 to-medical-600 text-white shadow-lg shadow-medical-500/25"
                       : "bg-gray-100 text-gray-400"
                   }`}>
                     {currentStep > step.id ? (
-                      <CheckCircle className="w-6 h-6" />
+                      <CheckCircle className="w-4 h-4 md:w-6 md:h-6" />
                     ) : (
-                      <step.icon className="w-5 h-5" />
+                      <step.icon className="w-3.5 h-3.5 md:w-5 md:h-5" />
                     )}
                   </div>
-                  <span className={`text-xs mt-2 font-medium ${
+                  <span className={`text-[10px] md:text-xs mt-1 md:mt-2 font-medium hidden sm:block ${
                     currentStep >= step.id ? "text-medical-600" : "text-gray-400"
                   }`}>
                     {step.title}
                   </span>
                 </div>
                 {i < steps.length - 1 && (
-                  <div className={`flex-1 h-1 mx-3 rounded-full transition-all duration-500 ${
+                  <div className={`flex-1 h-0.5 md:h-1 mx-1 md:mx-3 rounded-full transition-all duration-500 ${
                     currentStep > step.id ? "bg-medical-500" : "bg-gray-200"
                   }`}></div>
                 )}
@@ -149,13 +149,13 @@ export default function AppointmentPage() {
                       key={dept.id}
                       type="button"
                       onClick={() => handleChange("department", dept.name)}
-                      className={`p-4 rounded-xl border-2 text-left transition-all duration-200 ${
+                      className={`p-3 md:p-4 rounded-xl border-2 text-left transition-all duration-200 ${
                         formData.department === dept.name
                           ? "border-medical-500 bg-medical-50 shadow-lg shadow-medical-500/10"
                           : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
                       }`}
                     >
-                      <h4 className={`font-semibold text-sm ${
+                      <h4 className={`font-semibold text-xs md:text-sm ${
                         formData.department === dept.name ? "text-medical-600" : "text-gray-700"
                       }`}>
                         {dept.name}
@@ -189,22 +189,22 @@ export default function AppointmentPage() {
                       key={doc.id}
                       type="button"
                       onClick={() => handleChange("doctor", doc.name)}
-                      className={`w-full p-4 rounded-xl border-2 text-left transition-all duration-200 flex items-center gap-4 ${
+                      className={`w-full p-3 md:p-4 rounded-xl border-2 text-left transition-all duration-200 flex items-center gap-3 md:gap-4 ${
                         formData.doctor === doc.name
                           ? "border-medical-500 bg-medical-50"
                           : "border-gray-200 hover:border-gray-300"
                       }`}
                     >
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-medical-400 to-medical-600 flex items-center justify-center text-white font-bold shrink-0">
+                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-medical-400 to-medical-600 flex items-center justify-center text-white font-bold shrink-0 text-xs md:text-base">
                         {doc.name.split(" ").slice(1).map(n => n[0]).join("")}
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-700">{doc.name}</h4>
-                        <p className="text-gray-400 text-sm">{doc.specialization} · {doc.experience}</p>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-semibold text-gray-700 text-sm md:text-base truncate">{doc.name}</h4>
+                        <p className="text-gray-400 text-xs md:text-sm truncate">{doc.specialization} · {doc.experience}</p>
                       </div>
-                      <div className="ml-auto flex items-center gap-1">
-                        <span className="text-yellow-500">★</span>
-                        <span className="font-semibold text-sm">{doc.rating}</span>
+                      <div className="ml-auto flex items-center gap-1 shrink-0">
+                        <span className="text-yellow-500 text-xs md:text-sm">★</span>
+                        <span className="font-semibold text-xs md:text-sm">{doc.rating}</span>
                       </div>
                     </button>
                   ))}
@@ -236,13 +236,13 @@ export default function AppointmentPage() {
                       <Clock className="w-4 h-4 inline mr-2" />
                       Available Time Slots
                     </label>
-                    <div className="grid grid-cols-4 gap-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 md:gap-3">
                       {timeSlots.map((slot) => (
                         <button
                           key={slot}
                           type="button"
                           onClick={() => handleChange("time", slot)}
-                          className={`py-3 px-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                          className={`py-2 md:py-3 px-1 md:px-2 rounded-lg text-xs md:text-sm font-medium transition-all duration-200 ${
                             formData.time === slot
                               ? "bg-medical-500 text-white shadow-lg shadow-medical-500/25"
                               : "bg-gray-100 text-gray-600 hover:bg-gray-200"
