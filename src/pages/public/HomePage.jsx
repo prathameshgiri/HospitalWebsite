@@ -288,101 +288,35 @@ function DoctorsSection() {
   const [ref, isVisible] = useScrollAnimation();
 
   return (
-    <section ref={ref} className="section-padding bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
-          <Badge variant="ocean" className="mb-4">Our Experts</Badge>
-          <h2 className="section-title">
-            Meet Our <span className="gradient-text">Specialist</span> Doctors
-          </h2>
-          <p className="section-subtitle">
-            Our team of experienced and compassionate specialists is dedicated to providing 
-            the best medical care.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {DOCTORS.slice(0, 6).map((doctor, i) => (
-            <Card
-              key={doctor.id}
-              className={`card-hover group overflow-hidden border-0 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 rounded-3xl bg-white ${
-                isVisible ? "animate-slide-up opacity-0" : "opacity-0"
-              }`}
-              style={{ animationDelay: `${i * 100}ms` }}
-            >
-              <CardContent className="p-0">
-                <div className="h-28 bg-gradient-to-r from-medical-500 to-ocean-500 relative">
-                  {/* Availability Badge */}
-                  <div className={`absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold shadow-md ${
-                    doctor.available 
-                      ? "bg-white text-emerald-600" 
-                      : "bg-white/90 text-gray-500"
-                  }`}>
-                    <span className={`w-2 h-2 rounded-full ${doctor.available ? "bg-emerald-500 animate-pulse-soft" : "bg-gray-400"}`}></span>
-                    {doctor.available ? "Available" : "On Leave"}
-                  </div>
-                </div>
-                
-                <div className="px-6 pb-6 relative">
-                  {/* Doctor Avatar */}
-                  <div className="flex justify-center -mt-14 mb-4 relative z-10">
-                    <div className="w-28 h-28 rounded-full border-4 border-white shadow-xl overflow-hidden bg-white group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500">
-                      <img src={doctor.image} alt={doctor.name} className="w-full h-full object-cover" />
-                    </div>
-                  </div>
-                  
-                  {/* Info */}
-                  <div className="text-center">
-                    <h3 className="text-xl font-bold font-display text-gray-900 group-hover:text-medical-600 transition-colors">{doctor.name}</h3>
-                    <p className="text-medical-500 font-semibold text-sm mt-1">{doctor.specialization}</p>
-                    <p className="text-gray-500 text-xs mt-2 font-medium bg-gray-50 inline-block px-3 py-1 rounded-lg border border-gray-100">{doctor.qualification}</p>
-                  </div>
-                  
-                  {/* Stats */}
-                  <div className="grid grid-cols-3 gap-2 mt-6 pt-6 border-t border-gray-100">
-                    <div className="text-center">
-                      <div className="flex items-center justify-center gap-1 text-yellow-500 mb-1">
-                        <Star className="w-4 h-4 fill-current" />
-                        <span className="font-bold text-gray-900 text-sm">{doctor.rating}</span>
-                      </div>
-                      <span className="text-gray-400 text-[10px] uppercase tracking-wider font-semibold">Rating</span>
-                    </div>
-                    <div className="text-center border-l border-r border-gray-100">
-                      <div className="font-bold text-gray-900 text-sm mb-1">{doctor.experience.replace(' years', 'y')}</div>
-                      <span className="text-gray-400 text-[10px] uppercase tracking-wider font-semibold">Exp</span>
-                    </div>
-                    <div className="text-center">
-                      <div className="font-bold text-gray-900 text-sm mb-1">{(doctor.patients / 1000).toFixed(1)}K+</div>
-                      <span className="text-gray-400 text-[10px] uppercase tracking-wider font-semibold">Patients</span>
-                    </div>
-                  </div>
-
-                  {/* Actions */}
-                  <div className="flex flex-col sm:flex-row gap-3 mt-6">
-                    <Link to="/doctors" className="flex-1">
-                      <Button variant="outline" className="w-full text-xs font-semibold hover:bg-medical-50 hover:text-medical-600 border-gray-200">
-                        View Profile
-                      </Button>
-                    </Link>
-                    <Link to="/appointment" className="flex-1">
-                      <Button className="w-full text-xs font-semibold bg-medical-600 hover:bg-medical-700 text-white shadow-md shadow-medical-500/20" disabled={!doctor.available}>
-                        Get Appointment
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <Link to="/doctors">
-            <Button size="lg" variant="outline" className="h-auto py-2.5 px-5 md:py-3 md:px-8 text-xs md:text-sm gap-2 group">
-              View All Doctors
-              <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
+    <section ref={ref} className="py-20 bg-white">
+      <div className="container mx-auto px-4 md:px-6 mt-16">
+        <div className={`relative bg-ocean-500 rounded-2xl md:rounded-[2rem] px-8 md:px-16 pt-12 pb-0 lg:py-20 shadow-xl overflow-visible flex flex-col lg:flex-row items-center justify-between ${
+          isVisible ? "animate-fade-in opacity-0" : "opacity-0"
+        }`}>
+          
+          {/* Text Content */}
+          <div className="relative z-10 lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-white mb-4">
+              Meet Our Specialist Doctors
+            </h2>
+            <p className="text-white/90 text-lg md:text-xl mb-8 font-medium">
+              Our Experienced Medical Team: Your Partners in Health
+            </p>
+            <Link to="/doctors">
+              <Button className="bg-white text-medical-600 hover:bg-gray-50 text-base md:text-lg px-8 py-6 rounded-xl font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                <span className="text-red-600">Meet Our Team</span>
+              </Button>
+            </Link>
+          </div>
+          
+          {/* Image */}
+          <div className="lg:absolute lg:bottom-0 lg:right-4 w-full lg:w-1/2 max-w-lg mx-auto pointer-events-none flex justify-center lg:block mt-8 lg:mt-0">
+            <img 
+              src="/images/doctors_team_cutout.png" 
+              alt="Specialist Doctors Team" 
+              className="w-full h-auto object-contain drop-shadow-2xl lg:scale-[1.2] origin-bottom"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -461,8 +395,14 @@ function WhyChooseSection() {
   ];
 
   return (
-    <section ref={ref} className="section-padding bg-gradient-to-b from-white to-gray-50">
-      <div className="container mx-auto px-4 md:px-6">
+    <section ref={ref} className="section-padding relative overflow-hidden bg-gray-50">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute -top-[10%] -right-[5%] w-[40%] h-[40%] bg-gradient-to-br from-medical-100/40 to-ocean-100/40 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute -bottom-[10%] -left-[5%] w-[40%] h-[40%] bg-gradient-to-tr from-coral-100/30 to-medical-100/30 rounded-full blur-3xl opacity-50"></div>
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16">
           <Badge variant="coral" className="mb-4">Why Choose Us</Badge>
           <h2 className="section-title">
@@ -478,17 +418,32 @@ function WhyChooseSection() {
           {reasons.map((reason, i) => (
             <div
               key={i}
-              className={`flex items-start gap-4 p-6 rounded-2xl hover:bg-white hover:shadow-lg transition-all duration-300 ${
+              className={`group cursor-pointer rounded-[2rem] bg-white p-8 border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(13,148,136,0.12)] hover:-translate-y-2 transition-all duration-500 overflow-hidden relative ${
                 isVisible ? "animate-fade-in opacity-0" : "opacity-0"
               }`}
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-medical-100 to-medical-50 flex items-center justify-center shrink-0">
-                <reason.icon className="w-6 h-6 text-medical-600" />
+              {/* Internal Ambient Glow */}
+              <div className="absolute -top-12 -right-12 w-32 h-32 bg-gradient-to-br from-medical-400/10 to-ocean-400/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+
+              {/* Number Watermark */}
+              <div className="absolute -bottom-4 -right-2 text-[8rem] leading-none font-black text-gray-50/80 group-hover:text-medical-50/50 transition-colors duration-500 pointer-events-none select-none font-display">
+                {(i + 1).toString().padStart(2, '0')}
               </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 text-lg mb-1">{reason.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{reason.desc}</p>
+
+              {/* Icon Container */}
+              <div className="relative w-14 h-14 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center shrink-0 mb-6 group-hover:from-medical-50 group-hover:to-ocean-50 transition-colors duration-500 shadow-sm border border-gray-100/50 group-hover:border-medical-100">
+                <reason.icon className="w-7 h-7 text-gray-400 group-hover:text-medical-600 group-hover:rotate-6 transition-all duration-500" />
+              </div>
+
+              {/* Content */}
+              <div className="relative z-10">
+                <h3 className="font-bold text-gray-900 text-xl mb-3 group-hover:text-medical-700 transition-colors duration-300">
+                  {reason.title}
+                </h3>
+                <p className="text-gray-500 text-base leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
+                  {reason.desc}
+                </p>
               </div>
             </div>
           ))}
@@ -542,41 +497,7 @@ function FAQSection() {
   );
 }
 
-/* ─── CTA Section ─── */
-function CTASection() {
-  return (
-    <section className="section-padding bg-gradient-to-r from-medical-600 via-medical-500 to-ocean-600 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-white rounded-full blur-3xl"></div>
-      </div>
-      <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-display mb-6">
-          Ready to Get Started?
-        </h2>
-        <p className="text-medical-100 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-          Book your appointment today and experience world-class healthcare. 
-          Our team is ready to provide you with the best care possible.
-        </p>
-        <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-          <Link to="/appointment">
-            <Button size="xl" className="h-auto py-3 px-5 md:py-4 md:px-8 text-sm md:text-base bg-white text-medical-600 hover:bg-gray-50 shadow-xl gap-2 group">
-              <Calendar className="w-4 h-4 md:w-5 md:h-5" />
-              Book Appointment
-              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
-          <a href={`tel:${HOSPITAL_EMERGENCY}`}>
-            <Button size="xl" className="h-auto py-3 px-5 md:py-4 md:px-8 text-sm md:text-base bg-white/10 text-white border-2 border-white/30 hover:bg-white/20 backdrop-blur-sm gap-2">
-              <Phone className="w-4 h-4 md:w-5 md:h-5" />
-              Call Now
-            </Button>
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
+
 
 /* ─── Main HomePage ─── */
 export default function HomePage() {
@@ -589,7 +510,6 @@ export default function HomePage() {
       <WhyChooseSection />
       <TestimonialsSection />
       <FAQSection />
-      <CTASection />
     </>
   );
 }
