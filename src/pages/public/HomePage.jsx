@@ -168,8 +168,8 @@ function StatsSection() {
   return (
     <section className="relative -mt-1 z-20">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="bg-gradient-to-r from-medical-600 via-medical-500 to-ocean-600 rounded-2xl shadow-2xl shadow-medical-500/20 p-8 md:p-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="bg-gradient-to-r from-medical-600 via-medical-500 to-ocean-600 rounded-2xl shadow-2xl shadow-medical-500/20 py-5 px-4 md:p-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {STATS.map((stat, i) => {
               const [count, ref] = useCounter(stat.value);
               return (
@@ -177,7 +177,7 @@ function StatsSection() {
                   <div className="stat-number text-white">
                     {count.toLocaleString()}{stat.suffix}
                   </div>
-                  <p className="text-medical-100 mt-1 font-medium">{stat.label}</p>
+                  <p className="text-medical-100 mt-0.5 md:mt-1 text-xs md:text-base font-medium">{stat.label}</p>
                 </div>
               );
             })}
