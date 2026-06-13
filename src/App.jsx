@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import PublicLayout from "./components/layout/PublicLayout";
 import HomePage from "./pages/public/HomePage";
 import AboutPage from "./pages/public/AboutPage";
@@ -11,10 +12,22 @@ import EmergencyPage from "./pages/public/EmergencyPage";
 import TestimonialsPage from "./pages/public/TestimonialsPage";
 import LoginPage from "./pages/auth/LoginPage";
 import SignupPage from "./pages/auth/SignupPage";
+import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         {/* Public Routes */}
         <Route element={<PublicLayout />}>
@@ -32,6 +45,7 @@ function App() {
         {/* Auth Routes (Milestone 2) */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
         {/* Dashboard Routes (Milestone 2) */}
         {/* <Route element={<DashboardLayout />}> */}
