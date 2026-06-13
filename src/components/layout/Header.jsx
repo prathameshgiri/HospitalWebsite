@@ -2,14 +2,15 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "../ui/button";
 import { 
-  Menu, X, Phone, Clock, Mail, ChevronRight,
+  Menu, X, Phone, Clock, Mail, ChevronRight, ChevronDown,
   Heart, Calendar, LogIn
 } from "lucide-react";
-import { HOSPITAL_NAME, HOSPITAL_PHONE, HOSPITAL_EMAIL, NAV_LINKS } from "../../lib/constants";
+import { HOSPITAL_NAME, HOSPITAL_PHONE, HOSPITAL_EMAIL, NAV_LINKS, SERVICES } from "../../lib/constants";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -80,17 +81,47 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`nav-link px-4 py-2 text-[15px] ${
-                    location.pathname === link.path ? "active" : ""
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {NAV_LINKS.map((link) => {
+                if (link.name === "Services") {
+                  return (
+                    <div key={link.path} className="relative group">
+                      <Link
+                        to={link.path}
+                        className={`nav-link px-4 py-2 text-[15px] flex items-center gap-1 ${
+                          location.pathname.startsWith(link.path) ? "active" : ""
+                        }`}
+                      >
+                        {link.name}
+                        <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />
+                      </Link>
+                      <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 p-2 z-50">
+                        <Link to="/services" className="block px-4 py-2 text-sm text-medical-600 font-semibold hover:bg-gray-50 rounded-lg">View All Services</Link>
+                        <div className="h-px bg-gray-100 my-1"></div>
+                        {SERVICES.map(s => (
+                          <Link 
+                            key={s.id} 
+                            to={`/services/${s.title.toLowerCase().replace(/[^a-z0-9]+/g, '')}`}
+                            className="block px-4 py-2 text-sm text-gray-600 hover:text-medical-600 hover:bg-medical-50 rounded-lg transition-colors truncate"
+                          >
+                            {s.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                }
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`nav-link px-4 py-2 text-[15px] ${
+                      location.pathname === link.path ? "active" : ""
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Desktop Actions */}
@@ -129,20 +160,60 @@ export default function Header() {
           isMobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"
         }`}>
           <div className="container mx-auto px-4 py-4 space-y-1">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`flex items-center justify-between px-4 py-3 rounded-xl text-[15px] font-medium transition-colors ${
-                  location.pathname === link.path 
-                    ? "bg-medical-50 text-medical-600" 
-                    : "text-gray-600 hover:bg-gray-50"
-                }`}
-              >
-                {link.name}
-                <ChevronRight className="w-4 h-4 text-gray-400" />
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) => {
+              if (link.name === "Services") {
+                return (
+                  <div key={link.path} className="flex flex-col">
+                    <button
+                      onClick={() => setIsServicesOpen(!isServicesOpen)}
+                      className={`flex w-full items-center justify-between px-4 py-3 rounded-xl text-[15px] font-medium transition-colors ${
+                        location.pathname.startsWith(link.path) 
+                          ? "bg-medical-50 text-medical-600" 
+                          : "text-gray-600 hover:bg-gray-50"
+                      }`}
+                    >
+                      {link.name}
+                      <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${isServicesOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    <div className={`overflow-hidden transition-all duration-300 ${isServicesOpen ? "max-h-[500px] opacity-100 mt-1" : "max-h-0 opacity-0"}`}>
+                      <div className="pl-8 pr-4 py-2 flex flex-col gap-3">
+                        <Link
+                          to="/services"
+                          className="text-[13px] font-bold text-medical-600"
+                          onClick={() => setIsMobileOpen(false)}
+                        >
+                          View All Services
+                        </Link>
+                        {SERVICES.map(s => (
+                          <Link
+                            key={s.id}
+                            to={`/services/${s.title.toLowerCase().replace(/[^a-z0-9]+/g, '')}`}
+                            className="text-[13px] text-gray-500 hover:text-medical-600"
+                            onClick={() => setIsMobileOpen(false)}
+                          >
+                            {s.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`flex items-center justify-between px-4 py-3 rounded-xl text-[15px] font-medium transition-colors ${
+                    location.pathname === link.path 
+                      ? "bg-medical-50 text-medical-600" 
+                      : "text-gray-600 hover:bg-gray-50"
+                  }`}
+                >
+                  {link.name}
+                  <ChevronRight className="w-4 h-4 text-gray-400" />
+                </Link>
+              );
+            })}
             <div className="pt-3 flex flex-col gap-2">
               <Link to="/appointment">
                 <Button className="w-full gap-2">
