@@ -280,40 +280,70 @@ function DoctorsSection() {
           {DOCTORS.slice(0, 6).map((doctor, i) => (
             <Card
               key={doctor.id}
-              className={`card-hover group overflow-hidden ${
+              className={`card-hover group overflow-hidden border-0 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 rounded-3xl bg-white ${
                 isVisible ? "animate-slide-up opacity-0" : "opacity-0"
               }`}
               style={{ animationDelay: `${i * 100}ms` }}
             >
               <CardContent className="p-0">
-                {/* Doctor Avatar */}
-                <div className="relative h-52 bg-gradient-to-br from-medical-100 via-ocean-50 to-medical-50 flex items-center justify-center overflow-hidden">
-                  <div className="w-28 h-28 rounded-full shadow-xl group-hover:scale-110 transition-transform duration-300 overflow-hidden bg-white border-4 border-white">
-                    <img src={doctor.image} alt={doctor.name} className="w-full h-full object-cover" />
-                  </div>
+                <div className="h-28 bg-gradient-to-r from-medical-500 to-ocean-500 relative">
                   {/* Availability Badge */}
-                  <div className={`absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${
+                  <div className={`absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold shadow-md ${
                     doctor.available 
-                      ? "bg-emerald-100 text-emerald-700" 
-                      : "bg-gray-100 text-gray-500"
+                      ? "bg-white text-emerald-600" 
+                      : "bg-white/90 text-gray-500"
                   }`}>
                     <span className={`w-2 h-2 rounded-full ${doctor.available ? "bg-emerald-500 animate-pulse-soft" : "bg-gray-400"}`}></span>
                     {doctor.available ? "Available" : "On Leave"}
                   </div>
                 </div>
-                {/* Info */}
-                <div className="p-6">
-                  <h3 className="text-lg font-bold font-display text-gray-900">{doctor.name}</h3>
-                  <p className="text-medical-600 font-medium text-sm">{doctor.specialization}</p>
-                  <p className="text-gray-400 text-xs mt-1">{doctor.qualification}</p>
-                  
-                  <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
-                    <div className="flex items-center gap-1">
-                      <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                      <span className="font-semibold text-sm">{doctor.rating}</span>
+                
+                <div className="px-6 pb-6 relative">
+                  {/* Doctor Avatar */}
+                  <div className="flex justify-center -mt-14 mb-4 relative z-10">
+                    <div className="w-28 h-28 rounded-full border-4 border-white shadow-xl overflow-hidden bg-white group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500">
+                      <img src={doctor.image} alt={doctor.name} className="w-full h-full object-cover" />
                     </div>
-                    <span className="text-gray-400 text-xs">{doctor.experience} experience</span>
-                    <span className="text-gray-400 text-xs">{doctor.patients.toLocaleString()}+ patients</span>
+                  </div>
+                  
+                  {/* Info */}
+                  <div className="text-center">
+                    <h3 className="text-xl font-bold font-display text-gray-900 group-hover:text-medical-600 transition-colors">{doctor.name}</h3>
+                    <p className="text-medical-500 font-semibold text-sm mt-1">{doctor.specialization}</p>
+                    <p className="text-gray-500 text-xs mt-2 font-medium bg-gray-50 inline-block px-3 py-1 rounded-lg border border-gray-100">{doctor.qualification}</p>
+                  </div>
+                  
+                  {/* Stats */}
+                  <div className="grid grid-cols-3 gap-2 mt-6 pt-6 border-t border-gray-100">
+                    <div className="text-center">
+                      <div className="flex items-center justify-center gap-1 text-yellow-500 mb-1">
+                        <Star className="w-4 h-4 fill-current" />
+                        <span className="font-bold text-gray-900 text-sm">{doctor.rating}</span>
+                      </div>
+                      <span className="text-gray-400 text-[10px] uppercase tracking-wider font-semibold">Rating</span>
+                    </div>
+                    <div className="text-center border-l border-r border-gray-100">
+                      <div className="font-bold text-gray-900 text-sm mb-1">{doctor.experience.replace(' years', 'y')}</div>
+                      <span className="text-gray-400 text-[10px] uppercase tracking-wider font-semibold">Exp</span>
+                    </div>
+                    <div className="text-center">
+                      <div className="font-bold text-gray-900 text-sm mb-1">{(doctor.patients / 1000).toFixed(1)}K+</div>
+                      <span className="text-gray-400 text-[10px] uppercase tracking-wider font-semibold">Patients</span>
+                    </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex gap-3 mt-6">
+                    <Link to="/doctors" className="flex-1">
+                      <Button variant="outline" className="w-full text-xs font-semibold hover:bg-medical-50 hover:text-medical-600 border-gray-200">
+                        View Profile
+                      </Button>
+                    </Link>
+                    <Link to="/appointment" className="flex-1">
+                      <Button className="w-full text-xs font-semibold bg-medical-600 hover:bg-medical-700 text-white shadow-md shadow-medical-500/20" disabled={!doctor.available}>
+                        Get Appointment
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </CardContent>
