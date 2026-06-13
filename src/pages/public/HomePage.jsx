@@ -355,29 +355,27 @@ function TestimonialsSection() {
           {TESTIMONIALS.slice(0, 4).map((testimonial, i) => (
             <div 
               key={testimonial.id} 
-              className={`bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow border border-gray-100 ${
+              className={`bg-gradient-to-br from-white to-medical-50/50 rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow border border-medical-200 ${
                 isVisible ? "animate-scale-in opacity-0" : "opacity-0"
               }`}
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              <Quote className="w-10 h-10 text-medical-200 mb-4" />
-              <p className="text-gray-700 text-lg leading-relaxed italic mb-6 min-h-[100px]">
+              <div className="flex items-center gap-1 mb-5">
+                {[...Array(Math.floor(testimonial.rating))].map((_, idx) => (
+                  <Star key={idx} className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+                ))}
+                {testimonial.rating % 1 !== 0 && (
+                   <Star className="w-5 h-5 text-yellow-500 fill-yellow-500 opacity-50" />
+                )}
+              </div>
+              
+              <p className="text-gray-700 text-base md:text-lg leading-relaxed italic mb-6 min-h-[120px]">
                 "{testimonial.content}"
               </p>
               
-              <hr className="border-gray-100 mb-6" />
+              <hr className="border-medical-200 mb-6" />
               
-              <div className="flex items-center justify-between">
-                <h4 className="font-bold font-display text-gray-900 text-lg">{testimonial.name}</h4>
-                <div className="flex items-center gap-1">
-                  {[...Array(Math.floor(testimonial.rating))].map((_, idx) => (
-                    <Star key={idx} className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                  ))}
-                  {testimonial.rating % 1 !== 0 && (
-                     <Star className="w-5 h-5 text-yellow-500 fill-yellow-500 opacity-50" />
-                  )}
-                </div>
-              </div>
+              <h4 className="font-bold font-display text-gray-900 text-lg">{testimonial.name}</h4>
             </div>
           ))}
         </div>
