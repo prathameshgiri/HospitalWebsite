@@ -15,17 +15,17 @@ const allDoctors = [
   {
     id: 7, name: "Dr. Amit Joshi", specialization: "Dermatology",
     qualification: "MBBS, MD Dermatology", experience: "14 years",
-    image: null, rating: 4.7, patients: 7500, available: true,
+    image: "/images/avatars/doctor_amit_1781333867925.png", rating: 4.7, patients: 7500, available: true,
   },
   {
     id: 8, name: "Dr. Kavitha Rao", specialization: "ENT",
     qualification: "MBBS, MS ENT", experience: "11 years",
-    image: null, rating: 4.8, patients: 6000, available: true,
+    image: "/images/avatars/doctor_kavitha_1781333881064.png", rating: 4.8, patients: 6000, available: true,
   },
   {
     id: 9, name: "Dr. Sanjay Gupta", specialization: "Dental",
     qualification: "BDS, MDS Orthodontics", experience: "13 years",
-    image: null, rating: 4.9, patients: 9000, available: false,
+    image: "/images/avatars/doctor_sanjay_1781333893082.png", rating: 4.9, patients: 9000, available: false,
   },
 ];
 
@@ -107,8 +107,8 @@ export default function DoctorsPage() {
                 <Card key={doctor.id} className="card-hover group overflow-hidden">
                   <CardContent className="p-0">
                     <div className="relative h-56 bg-gradient-to-br from-medical-100 via-ocean-50 to-emerald-50 flex items-center justify-center overflow-hidden">
-                      <div className="w-32 h-32 rounded-full bg-gradient-to-br from-medical-400 to-medical-600 flex items-center justify-center text-white text-4xl font-bold shadow-xl group-hover:scale-110 transition-transform duration-500">
-                        {doctor.name.split(" ").slice(1).map(n => n[0]).join("")}
+                      <div className="w-32 h-32 rounded-full shadow-xl group-hover:scale-110 transition-transform duration-500 overflow-hidden bg-white border-4 border-white">
+                        <img src={doctor.image} alt={doctor.name} className="w-full h-full object-cover" />
                       </div>
                       <div className={`absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold ${
                         doctor.available

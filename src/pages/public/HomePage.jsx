@@ -118,11 +118,9 @@ function HeroSection() {
             {/* Trust Indicators */}
             <div className="flex items-center gap-6 pt-4 animate-fade-in animation-delay-800">
               <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {[...Array(4)].map((_, i) => (
-                    <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-medical-300 to-medical-500 border-2 border-white flex items-center justify-center text-white text-xs font-bold">
-                      {String.fromCharCode(65 + i)}
-                    </div>
+                <div className="flex -space-x-3">
+                  {[1, 2, 3, 4].map((num) => (
+                    <img key={num} src={`/images/avatars/patient_avatar_${num}_17813337${num === 1 ? '22701' : num === 2 ? '35851' : num === 3 ? '48535' : '62450'}.png`} alt={`Patient ${num}`} className="w-10 h-10 rounded-full border-2 border-white object-cover" />
                   ))}
                 </div>
                 <div className="text-sm">
@@ -290,8 +288,8 @@ function DoctorsSection() {
               <CardContent className="p-0">
                 {/* Doctor Avatar */}
                 <div className="relative h-52 bg-gradient-to-br from-medical-100 via-ocean-50 to-medical-50 flex items-center justify-center overflow-hidden">
-                  <div className="w-28 h-28 rounded-full bg-gradient-to-br from-medical-400 to-medical-600 flex items-center justify-center text-white text-3xl font-bold shadow-xl group-hover:scale-110 transition-transform duration-300">
-                    {doctor.name.split(" ").slice(1).map(n => n[0]).join("")}
+                  <div className="w-28 h-28 rounded-full shadow-xl group-hover:scale-110 transition-transform duration-300 overflow-hidden bg-white border-4 border-white">
+                    <img src={doctor.image} alt={doctor.name} className="w-full h-full object-cover" />
                   </div>
                   {/* Availability Badge */}
                   <div className={`absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${
@@ -338,19 +336,10 @@ function DoctorsSection() {
 
 /* ─── Testimonials Section ─── */
 function TestimonialsSection() {
-  const [current, setCurrent] = useState(0);
   const [ref, isVisible] = useScrollAnimation();
 
-  const next = () => setCurrent((prev) => (prev + 1) % TESTIMONIALS.length);
-  const prev = () => setCurrent((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
-
-  useEffect(() => {
-    const timer = setInterval(next, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <section ref={ref} className="section-padding bg-white">
+    <section ref={ref} className="section-padding bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <Badge variant="emerald" className="mb-4">Testimonials</Badge>
@@ -362,65 +351,44 @@ function TestimonialsSection() {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className={`relative bg-gradient-to-br from-gray-50 to-medical-50/30 rounded-3xl p-8 md:p-12 ${
-            isVisible ? "animate-scale-in opacity-0" : "opacity-0"
-          }`}>
-            {/* Quote Icon */}
-            <Quote className="w-12 h-12 text-medical-200 mb-6" />
-            
-            {/* Testimonial Content */}
-            <div className="min-h-[120px]">
-              <p className="text-lg md:text-xl text-gray-700 leading-relaxed italic transition-opacity duration-500">
-                "{TESTIMONIALS[current].content}"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {TESTIMONIALS.slice(0, 4).map((testimonial, i) => (
+            <div 
+              key={testimonial.id} 
+              className={`bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow border border-gray-100 ${
+                isVisible ? "animate-scale-in opacity-0" : "opacity-0"
+              }`}
+              style={{ animationDelay: `${i * 100}ms` }}
+            >
+              <Quote className="w-10 h-10 text-medical-200 mb-4" />
+              <p className="text-gray-700 text-lg leading-relaxed italic mb-6 min-h-[100px]">
+                "{testimonial.content}"
               </p>
-            </div>
-            
-            {/* Author */}
-            <div className="flex items-center justify-between mt-8">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-medical-400 to-medical-600 flex items-center justify-center text-white font-bold">
-                  {TESTIMONIALS[current].name[0]}
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">{TESTIMONIALS[current].name}</h4>
-                  <p className="text-gray-500 text-sm">{TESTIMONIALS[current].role}</p>
+              
+              <hr className="border-gray-100 mb-6" />
+              
+              <div className="flex items-center justify-between">
+                <h4 className="font-bold font-display text-gray-900 text-lg">{testimonial.name}</h4>
+                <div className="flex items-center gap-1">
+                  {[...Array(Math.floor(testimonial.rating))].map((_, idx) => (
+                    <Star key={idx} className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+                  ))}
+                  {testimonial.rating % 1 !== 0 && (
+                     <Star className="w-5 h-5 text-yellow-500 fill-yellow-500 opacity-50" />
+                  )}
                 </div>
               </div>
-              <div className="flex items-center gap-1">
-                {[...Array(TESTIMONIALS[current].rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                ))}
-              </div>
             </div>
+          ))}
+        </div>
 
-            {/* Navigation */}
-            <div className="flex items-center justify-center gap-4 mt-8">
-              <button
-                onClick={prev}
-                className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-medical-50 transition-colors"
-              >
-                <ChevronLeft className="w-5 h-5 text-gray-600" />
-              </button>
-              <div className="flex gap-2">
-                {TESTIMONIALS.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrent(i)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      i === current ? "w-8 bg-medical-500" : "w-2 bg-gray-300 hover:bg-gray-400"
-                    }`}
-                  />
-                ))}
-              </div>
-              <button
-                onClick={next}
-                className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-medical-50 transition-colors"
-              >
-                <ChevronRight className="w-5 h-5 text-gray-600" />
-              </button>
-            </div>
-          </div>
+        <div className="text-center mt-12">
+          <Link to="/testimonials">
+            <Button size="lg" variant="outline" className="gap-2 group shadow-sm bg-white hover:bg-gray-50">
+              View More Feedback
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

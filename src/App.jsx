@@ -8,6 +8,7 @@ import FacilitiesPage from "./pages/public/FacilitiesPage";
 import ContactPage from "./pages/public/ContactPage";
 import AppointmentPage from "./pages/public/AppointmentPage";
 import EmergencyPage from "./pages/public/EmergencyPage";
+import TestimonialsPage from "./pages/public/TestimonialsPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/appointment" element={<AppointmentPage />} />
           <Route path="/emergency" element={<EmergencyPage />} />
+          <Route path="/testimonials" element={<TestimonialsPage />} />
         </Route>
 
         {/* Auth Routes (Milestone 2) */}
