@@ -6,7 +6,7 @@ import { HOSPITAL_NAME } from "../../lib/constants";
 
 export default function ForgotPasswordPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#b3e5fc]/50 via-white to-white flex flex-col items-center pt-20 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-white flex flex-col items-center pt-20 px-4">
       {/* Container */}
       <div className="w-full max-w-[400px]">
         {/* Title */}

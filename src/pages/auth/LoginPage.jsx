@@ -9,7 +9,7 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#b3e5fc]/50 via-white to-white flex flex-col items-center pt-20 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-white flex flex-col items-center pt-20 px-4">
       {/* Container */}
       <div className="w-full max-w-[400px]">
         {/* Title */}
@@ -62,7 +62,7 @@ export default function LoginPage() {
           <p className="text-slate-600 text-sm">
             Don't have an account? <Link to="/signup" className="text-blue-600 font-semibold hover:underline">Sign up</Link>
           </p>
-        </div>
+        </div> 
 
         {/* Disclaimer */}
         <p className="text-xs text-slate-500 mt-12 mb-16 leading-relaxed">
