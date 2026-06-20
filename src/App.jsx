@@ -5,6 +5,7 @@ import HomePage from "./pages/public/HomePage";
 import AboutPage from "./pages/public/AboutPage";
 import ServicesPage from "./pages/public/ServicesPage";
 import DoctorsPage from "./pages/public/DoctorsPage";
+import DoctorProfilePage from "./pages/public/DoctorProfilePage";
 import FacilitiesPage from "./pages/public/FacilitiesPage";
 import ContactPage from "./pages/public/ContactPage";
 import AppointmentPage from "./pages/public/AppointmentPage";
@@ -46,6 +47,7 @@ function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/:id" element={<ServiceDetailsPage />} />
           <Route path="/doctors" element={<DoctorsPage />} />
+          <Route path="/doctors/:id" element={<DoctorProfilePage />} />
           <Route path="/facilities" element={<FacilitiesPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/appointment" element={<AppointmentPage />} />

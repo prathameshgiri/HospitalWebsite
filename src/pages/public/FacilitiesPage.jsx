@@ -91,19 +91,35 @@ export default function FacilitiesPage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-16 bg-gradient-to-r from-medical-600 to-ocean-600">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+      {/* Stats - Premium Glassmorphic Banner */}
+      <section className="py-12 md:py-16 relative overflow-hidden">
+        {/* Deep, Rich Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-medical-950 to-ocean-950"></div>
+        
+        {/* Ambient Glowing Orbs */}
+        <div className="absolute -top-24 -left-24 w-64 h-64 bg-medical-500/20 rounded-full blur-[80px] animate-pulse"></div>
+        <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-ocean-500/20 rounded-full blur-[80px] animate-pulse animation-delay-1000"></div>
+        
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
             {[
               { value: "500+", label: "Bed Capacity" },
               { value: "10", label: "Operation Theaters" },
               { value: "50+", label: "ICU Beds" },
               { value: "200+", label: "Parking Spots" },
             ].map((stat, i) => (
-              <div key={i}>
-                <div className="text-4xl md:text-5xl font-bold font-display">{stat.value}</div>
-                <p className="text-medical-100 mt-2 font-medium">{stat.label}</p>
+              <div 
+                key={i} 
+                className="group relative p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_20px_50px_rgba(13,148,136,0.2)]"
+              >
+                {/* Number with Gradient Text */}
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold font-display bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300 mb-2 group-hover:scale-105 transition-transform duration-500">
+                  {stat.value}
+                </div>
+                {/* Label */}
+                <p className="text-teal-400 font-bold tracking-wider uppercase text-[10px] md:text-xs group-hover:text-teal-300 transition-colors drop-shadow-sm">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>

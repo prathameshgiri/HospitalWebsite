@@ -85,6 +85,13 @@ export const DOCTORS = [
     rating: 4.9,
     patients: 12000,
     available: true,
+    bio: "Dr. Rajesh Kumar is a leading cardiologist with over 18 years of experience. He specializes in interventional cardiology and has performed over 5,000 successful cardiac procedures. His commitment to patient care and advanced research makes him one of the most sought-after doctors in the field.",
+    education: [
+      { degree: "MBBS", institution: "All India Institute of Medical Sciences", year: "2004" },
+      { degree: "MD Medicine", institution: "Post Graduate Institute of Medical Education", year: "2007" },
+      { degree: "DM Cardiology", institution: "Armed Forces Medical College", year: "2010" }
+    ],
+    schedule: "Mon - Fri: 10:00 AM - 4:00 PM"
   },
   {
     id: 2,
@@ -96,6 +103,13 @@ export const DOCTORS = [
     rating: 4.8,
     patients: 9500,
     available: true,
+    bio: "Dr. Priya Sharma is a distinguished neurologist with expertise in stroke management, epilepsy, and movement disorders. She is dedicated to providing comprehensive neurological care with a compassionate approach.",
+    education: [
+      { degree: "MBBS", institution: "Christian Medical College", year: "2007" },
+      { degree: "MD General Medicine", institution: "Kasturba Medical College", year: "2010" },
+      { degree: "DM Neurology", institution: "NIMHANS", year: "2013" }
+    ],
+    schedule: "Mon, Wed, Fri: 9:00 AM - 1:00 PM"
   },
   {
     id: 3,
@@ -107,6 +121,12 @@ export const DOCTORS = [
     rating: 4.9,
     patients: 15000,
     available: true,
+    bio: "Dr. Arun Patel is an internationally recognized orthopedic surgeon specializing in joint replacement and sports injuries. With a patient-first approach, he ensures the highest standards of surgical outcomes and rehabilitation.",
+    education: [
+      { degree: "MBBS", institution: "Grant Medical College", year: "2002" },
+      { degree: "MS Orthopedics", institution: "King Edward Memorial Hospital", year: "2006" }
+    ],
+    schedule: "Tue, Thu, Sat: 11:00 AM - 5:00 PM"
   },
   {
     id: 4,
@@ -118,6 +138,12 @@ export const DOCTORS = [
     rating: 4.7,
     patients: 8000,
     available: true,
+    bio: "Dr. Sneha Reddy is a caring pediatrician who provides comprehensive healthcare for infants, children, and adolescents. Her warm and friendly demeanor makes hospital visits comfortable for children and reassuring for parents.",
+    education: [
+      { degree: "MBBS", institution: "Osmania Medical College", year: "2010" },
+      { degree: "MD Pediatrics", institution: "Niloufer Hospital", year: "2014" }
+    ],
+    schedule: "Mon - Sat: 10:00 AM - 2:00 PM"
   },
   {
     id: 5,
@@ -129,6 +155,12 @@ export const DOCTORS = [
     rating: 4.8,
     patients: 20000,
     available: false,
+    bio: "Dr. Vikram Singh is a senior physician specializing in general medicine and internal diseases. He has vast experience in diagnosing and treating complex multisystem diseases and preventive healthcare.",
+    education: [
+      { degree: "MBBS", institution: "Maulana Azad Medical College", year: "2000" },
+      { degree: "MD Medicine", institution: "Safdarjung Hospital", year: "2004" }
+    ],
+    schedule: "Mon - Fri: 8:00 AM - 2:00 PM"
   },
   {
     id: 6,
@@ -140,7 +172,64 @@ export const DOCTORS = [
     rating: 4.9,
     patients: 11000,
     available: true,
+    bio: "Dr. Meera is a highly skilled gynecologist and obstetrician with extensive experience in high-risk pregnancies and minimally invasive gynecological surgeries.",
+    education: [
+      { degree: "MBBS", institution: "Medical College of India", year: "2006" },
+      { degree: "MS Obstetrics & Gynecology", institution: "Women's Health Institute", year: "2010" }
+    ],
+    schedule: "Mon, Wed, Fri: 9:00 AM - 2:00 PM"
   },
+  {
+    id: 7,
+    name: "Dr. Amit Joshi",
+    specialization: "Dermatology",
+    qualification: "MBBS, MD Dermatology",
+    experience: "14 years",
+    image: "/images/avatars/doctor_amit_1781333867925.png",
+    rating: 4.7,
+    patients: 7500,
+    available: true,
+    bio: "Dr. Amit specializes in clinical and cosmetic dermatology. He is well known for his expertise in advanced laser treatments and skin rejuvenation procedures.",
+    education: [
+      { degree: "MBBS", institution: "National Medical College", year: "2008" },
+      { degree: "MD Dermatology", institution: "Skin Care Institute", year: "2012" }
+    ],
+    schedule: "Tue, Thu, Sat: 10:00 AM - 4:00 PM"
+  },
+  {
+    id: 8,
+    name: "Dr. Kavitha Rao",
+    specialization: "ENT",
+    qualification: "MBBS, MS ENT",
+    experience: "11 years",
+    image: "/images/avatars/doctor_kavitha_1781333881064.png",
+    rating: 4.8,
+    patients: 6000,
+    available: true,
+    bio: "Dr. Kavitha is an expert ENT surgeon focusing on microscopic ear surgeries and endoscopic sinus surgeries. She is dedicated to providing compassionate care to her patients.",
+    education: [
+      { degree: "MBBS", institution: "City Medical University", year: "2011" },
+      { degree: "MS ENT", institution: "Otolaryngology Center", year: "2015" }
+    ],
+    schedule: "Mon - Fri: 1:00 PM - 5:00 PM"
+  },
+  {
+    id: 9,
+    name: "Dr. Sanjay Gupta",
+    specialization: "Dental",
+    qualification: "BDS, MDS Orthodontics",
+    experience: "13 years",
+    image: "/images/avatars/doctor_sanjay_1781333893082.png",
+    rating: 4.9,
+    patients: 9000,
+    available: false,
+    bio: "Dr. Sanjay is a leading orthodontist known for his precision in dental implants and smile designing. He uses state-of-the-art technology to deliver the best dental care.",
+    education: [
+      { degree: "BDS", institution: "Dental College & Hospital", year: "2009" },
+      { degree: "MDS Orthodontics", institution: "Institute of Dental Sciences", year: "2013" }
+    ],
+    schedule: "Mon, Wed, Thu: 9:00 AM - 1:00 PM"
+  }
 ];
 
 export const FACILITIES = [

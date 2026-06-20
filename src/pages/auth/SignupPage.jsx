@@ -9,7 +9,7 @@ export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-white flex flex-col items-center pt-20 px-4">
+    <div className="min-h-screen bg-[#eff4fa] flex flex-col items-center pt-20 px-4">
       {/* Container */}
       <div className="w-full max-w-[400px]">
         {/* Title */}
@@ -22,7 +22,7 @@ export default function SignupPage() {
             <label className="block text-slate-700 mb-2">Full Name</label>
             <Input 
               type="text" 
-              className="w-full border-blue-500 focus:border-blue-600 focus:ring-blue-600 rounded-lg"
+              className="w-full border-[#90b4e8] focus:border-blue-600 focus:ring-blue-600 rounded-lg bg-white"
               placeholder="Name"
             />
           </div>
@@ -30,7 +30,7 @@ export default function SignupPage() {
             <label className="block text-slate-700 mb-2">Mobile Number</label>
             <Input 
               type="tel" 
-              className="w-full border-blue-500 focus:border-blue-600 focus:ring-blue-600 rounded-lg"
+              className="w-full border-[#90b4e8] focus:border-blue-600 focus:ring-blue-600 rounded-lg bg-white"
               placeholder="+91 98765 43210"
             />
           </div>
@@ -38,7 +38,7 @@ export default function SignupPage() {
             <label className="block text-slate-700 mb-2">Email</label>
             <Input 
               type="email" 
-              className="w-full border-blue-500 focus:border-blue-600 focus:ring-blue-600 rounded-lg"
+              className="w-full border-[#90b4e8] focus:border-blue-600 focus:ring-blue-600 rounded-lg bg-white"
               placeholder="email@example.com"
             />
           </div>
@@ -47,7 +47,7 @@ export default function SignupPage() {
             <div className="relative group">
               <Input 
                 type={showPassword ? "text" : "password"} 
-                className="w-full border-blue-500 focus:border-blue-600 focus:ring-blue-600 rounded-lg pr-12 transition-all duration-300"
+                className="w-full border-[#90b4e8] focus:border-blue-600 focus:ring-blue-600 rounded-lg pr-12 transition-all duration-300 bg-white"
                 placeholder="••••••••"
               />
               <button
@@ -78,8 +78,8 @@ export default function SignupPage() {
         </div>
 
         {/* Disclaimer */}
-        <p className="text-xs text-slate-500 mt-12 mb-16 leading-relaxed">
-          By signing up for {HOSPITAL_NAME} you acknowledge that you agree to {HOSPITAL_NAME}'s <a href="#" className="underline hover:text-slate-700">Terms of Service</a> and <a href="#" className="underline hover:text-slate-700">Privacy Policy</a>.
+        <p className="text-xs text-slate-500 mt-12 mb-16 leading-relaxed text-center">
+          By signing up for {HOSPITAL_NAME} you acknowledge that you agree to<br className="hidden sm:block" /> {HOSPITAL_NAME}'s <a href="#" className="underline hover:text-slate-700">Terms of Service</a> and <a href="#" className="underline hover:text-slate-700">Privacy Policy</a>.
         </p>
 
         {/* Bottom Logo */}

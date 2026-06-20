@@ -6,7 +6,7 @@ import { HOSPITAL_NAME } from "../../lib/constants";
 
 export default function ForgotPasswordPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-white flex flex-col items-center pt-20 px-4">
+    <div className="min-h-screen bg-[#eff4fa] flex flex-col items-center pt-20 px-4">
       {/* Container */}
       <div className="w-full max-w-[400px]">
         {/* Title */}
@@ -19,7 +19,7 @@ export default function ForgotPasswordPage() {
             <label className="block text-slate-700 mb-2">Email</label>
             <Input 
               type="email" 
-              className="w-full border-blue-500 focus:border-blue-600 focus:ring-blue-600 rounded-lg"
+              className="w-full border-[#90b4e8] focus:border-blue-600 focus:ring-blue-600 rounded-lg bg-white"
               placeholder="email@example.com"
             />
           </div>

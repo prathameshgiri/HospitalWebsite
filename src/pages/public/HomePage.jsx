@@ -166,18 +166,27 @@ function HeroSection() {
 /* ─── Stats Section ─── */
 function StatsSection() {
   return (
-    <section className="relative -mt-1 z-20">
+    <section className="relative -mt-8 z-20 pb-12">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="bg-gradient-to-r from-medical-600 via-medical-500 to-ocean-600 rounded-2xl shadow-2xl shadow-medical-500/20 py-5 px-4 md:p-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+        <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-medical-900/20 py-8 px-4 md:py-12 md:px-10 border border-white/10 backdrop-blur-sm group">
+          {/* Background Gradient & Effects */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-medical-950 to-ocean-950"></div>
+          
+          {/* Ambient Glowing Orbs */}
+          <div className="absolute -top-24 -left-24 w-64 h-64 bg-medical-500/20 rounded-full blur-[80px] group-hover:bg-medical-500/30 transition-colors duration-700"></div>
+          <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-ocean-500/20 rounded-full blur-[80px] group-hover:bg-ocean-500/30 transition-colors duration-700"></div>
+
+          <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {STATS.map((stat, i) => {
               const [count, ref] = useCounter(stat.value);
               return (
                 <div key={i} ref={ref} className="text-center">
-                  <div className="stat-number text-white">
+                  <div className="text-3xl md:text-4xl lg:text-5xl font-bold font-display bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300 mb-2 hover:scale-105 transition-transform duration-500 cursor-default">
                     {count.toLocaleString()}{stat.suffix}
                   </div>
-                  <p className="text-medical-100 mt-0.5 md:mt-1 text-xs md:text-base font-medium">{stat.label}</p>
+                  <p className="text-teal-400 text-[10px] md:text-xs font-bold tracking-wider uppercase hover:text-teal-300 transition-colors cursor-default drop-shadow-sm">
+                    {stat.label}
+                  </p>
                 </div>
               );
             })}

@@ -10,37 +10,18 @@ import {
 } from "lucide-react";
 import { DOCTORS, DEPARTMENTS } from "../../lib/constants";
 
-const allDoctors = [
-  ...DOCTORS,
-  {
-    id: 7, name: "Dr. Amit Joshi", specialization: "Dermatology",
-    qualification: "MBBS, MD Dermatology", experience: "14 years",
-    image: "/images/avatars/doctor_amit_1781333867925.png", rating: 4.7, patients: 7500, available: true,
-  },
-  {
-    id: 8, name: "Dr. Kavitha Rao", specialization: "ENT",
-    qualification: "MBBS, MS ENT", experience: "11 years",
-    image: "/images/avatars/doctor_kavitha_1781333881064.png", rating: 4.8, patients: 6000, available: true,
-  },
-  {
-    id: 9, name: "Dr. Sanjay Gupta", specialization: "Dental",
-    qualification: "BDS, MDS Orthodontics", experience: "13 years",
-    image: "/images/avatars/doctor_sanjay_1781333893082.png", rating: 4.9, patients: 9000, available: false,
-  },
-];
-
 export default function DoctorsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDept, setSelectedDept] = useState("All");
 
-  const filteredDoctors = allDoctors.filter((doc) => {
+  const filteredDoctors = DOCTORS.filter((doc) => {
     const matchesSearch = doc.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       doc.specialization.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesDept = selectedDept === "All" || doc.specialization === selectedDept;
     return matchesSearch && matchesDept;
   });
 
-  const departments = ["All", ...new Set(allDoctors.map(d => d.specialization))];
+  const departments = ["All", ...new Set(DOCTORS.map(d => d.specialization))];
 
   return (
     <>
@@ -147,7 +128,7 @@ export default function DoctorsPage() {
                       </div>
 
                       <div className="flex flex-col sm:flex-row gap-3 mt-6">
-                        <Link to="#" className="w-full sm:flex-1">
+                        <Link to={`/doctors/${doctor.id}`} className="w-full sm:flex-1">
                           <Button variant="outline" className="w-full text-xs font-semibold hover:bg-medical-50 hover:text-medical-600 border-gray-200">
                             View Profile
                           </Button>
